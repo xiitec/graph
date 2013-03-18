@@ -449,3 +449,161 @@
 #1 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #2 C:\xampp\htdocs\Graph\app\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2013-03-18 18:43:02 Error: [MissingActionException] Action UsersController::logout() could not be found.
+#0 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Graph\app\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-18 18:43:52 Error: [MissingViewException] View file "C:\xampp\htdocs\Graph\app\View\Users\logout.ctp" is missing.
+#0 C:\xampp\htdocs\Graph\lib\Cake\View\View.php(467): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\Graph\lib\Cake\Controller\Controller.php(955): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\Graph\app\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-18 18:44:48 Error: [MissingViewException] View file "C:\xampp\htdocs\Graph\app\View\Users\logout.ctp" is missing.
+#0 C:\xampp\htdocs\Graph\lib\Cake\View\View.php(467): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\Graph\lib\Cake\Controller\Controller.php(955): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\Graph\app\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-18 18:45:00 Error: [MissingViewException] View file "C:\xampp\htdocs\Graph\app\View\Users\logout.ctp" is missing.
+#0 C:\xampp\htdocs\Graph\lib\Cake\View\View.php(467): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\Graph\lib\Cake\Controller\Controller.php(955): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\Graph\app\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-18 18:45:01 Error: [MissingViewException] View file "C:\xampp\htdocs\Graph\app\View\Users\logout.ctp" is missing.
+#0 C:\xampp\htdocs\Graph\lib\Cake\View\View.php(467): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\Graph\lib\Cake\Controller\Controller.php(955): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\Graph\app\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-18 19:22:52 Error: Fatal Error (1): Call to a member function login() on a non-object in [C:\xampp\htdocs\Graph\app\View\Helper\LoginHelper.php, line 6]
+2013-03-18 19:22:52 Error: [FatalErrorException] Call to a member function login() on a non-object
+#0 C:\xampp\htdocs\Graph\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 6)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 6, Array)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 6, Array)
+#3 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-18 19:23:14 Error: Fatal Error (1): Call to a member function login() on a non-object in [C:\xampp\htdocs\Graph\app\View\Helper\LoginHelper.php, line 9]
+2013-03-18 19:23:14 Error: [FatalErrorException] Call to a member function login() on a non-object
+#0 C:\xampp\htdocs\Graph\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 9)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 9, Array)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 9, Array)
+#3 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-18 19:24:55 Error: Fatal Error (4): syntax error, unexpected ';' in [C:\xampp\htdocs\Graph\app\Controller\UsersController.php, line 61]
+2013-03-18 19:24:55 Error: [FatalErrorException] syntax error, unexpected ';'
+#0 C:\xampp\htdocs\Graph\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 61)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 61, Array)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 61, Array)
+#3 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-18 19:29:02 Error: Fatal Error (1): Call to a member function set() on a non-object in [C:\xampp\htdocs\Graph\app\Controller\UsersController.php, line 31]
+2013-03-18 19:29:02 Error: [FatalErrorException] Call to a member function set() on a non-object
+#0 C:\xampp\htdocs\Graph\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 31)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 31, Array)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 31, Array)
+#3 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-18 19:29:12 Error: Fatal Error (1): Call to a member function set() on a non-object in [C:\xampp\htdocs\Graph\app\Controller\UsersController.php, line 31]
+2013-03-18 19:29:12 Error: [FatalErrorException] Call to a member function set() on a non-object
+#0 C:\xampp\htdocs\Graph\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 31)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 31, Array)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 31, Array)
+#3 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-18 19:29:23 Error: Fatal Error (4): syntax error, unexpected '->' (T_OBJECT_OPERATOR) in [C:\xampp\htdocs\Graph\app\Controller\UsersController.php, line 31]
+2013-03-18 19:29:23 Error: [FatalErrorException] syntax error, unexpected '->' (T_OBJECT_OPERATOR)
+#0 C:\xampp\htdocs\Graph\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 31)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 31, Array)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 31, Array)
+#3 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-18 19:29:24 Error: Fatal Error (4): syntax error, unexpected '->' (T_OBJECT_OPERATOR) in [C:\xampp\htdocs\Graph\app\Controller\UsersController.php, line 31]
+2013-03-18 19:29:24 Error: [FatalErrorException] syntax error, unexpected '->' (T_OBJECT_OPERATOR)
+#0 C:\xampp\htdocs\Graph\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 31)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 31, Array)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 31, Array)
+#3 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-18 19:30:25 Error: Fatal Error (1): Call to undefined method CakeEvent::set() in [C:\xampp\htdocs\Graph\app\Controller\UsersController.php, line 33]
+2013-03-18 19:30:25 Error: [FatalErrorException] Call to undefined method CakeEvent::set()
+#0 C:\xampp\htdocs\Graph\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\xampp\htdocs...', 33)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\xampp\htdocs...', 33, Array)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\xampp\htdocs...', 33, Array)
+#3 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-18 19:34:11 Error: Fatal Error (1): Call to undefined method AuthComponent::set() in [C:\xampp\htdocs\Graph\lib\Cake\Controller\Component\AuthComponent.php, line 260]
+2013-03-18 19:34:11 Error: [FatalErrorException] Call to undefined method AuthComponent::set()
+#0 C:\xampp\htdocs\Graph\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\xampp\htdocs...', 260)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\xampp\htdocs...', 260, Array)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\xampp\htdocs...', 260, Array)
+#3 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-18 19:34:59 Error: Fatal Error (1): Call to undefined method AuthComponent::set() in [C:\xampp\htdocs\Graph\lib\Cake\Controller\Component\AuthComponent.php, line 258]
+2013-03-18 19:34:59 Error: [FatalErrorException] Call to undefined method AuthComponent::set()
+#0 C:\xampp\htdocs\Graph\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\xampp\htdocs...', 258)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\xampp\htdocs...', 258, Array)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\xampp\htdocs...', 258, Array)
+#3 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-18 19:35:01 Error: Fatal Error (1): Call to undefined method AuthComponent::set() in [C:\xampp\htdocs\Graph\lib\Cake\Controller\Component\AuthComponent.php, line 258]
+2013-03-18 19:35:01 Error: [FatalErrorException] Call to undefined method AuthComponent::set()
+#0 C:\xampp\htdocs\Graph\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\xampp\htdocs...', 258)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\xampp\htdocs...', 258, Array)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\xampp\htdocs...', 258, Array)
+#3 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-18 19:37:02 Error: Fatal Error (1): Call to undefined method AuthComponent::set() in [C:\xampp\htdocs\Graph\lib\Cake\Controller\Component\AuthComponent.php, line 258]
+2013-03-18 19:37:02 Error: [FatalErrorException] Call to undefined method AuthComponent::set()
+#0 C:\xampp\htdocs\Graph\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\xampp\htdocs...', 258)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\xampp\htdocs...', 258, Array)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\xampp\htdocs...', 258, Array)
+#3 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-18 19:50:31 Error: Fatal Error (4): syntax error, unexpected '{' in [C:\xampp\htdocs\Graph\app\View\Layouts\default.ctp, line 51]
+2013-03-18 19:50:31 Error: [FatalErrorException] syntax error, unexpected '{'
+#0 C:\xampp\htdocs\Graph\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 51)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\xampp\htdocs...', 51, Array)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\xampp\htdocs...', 51, Array)
+#3 C:\xampp\htdocs\Graph\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-03-18 19:51:43 Error: [MissingViewException] View file "C:\xampp\htdocs\Graph\app\View\Users\logout.ctp" is missing.
+#0 C:\xampp\htdocs\Graph\lib\Cake\View\View.php(467): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\Graph\lib\Cake\Controller\Controller.php(955): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\Graph\app\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-18 19:51:44 Error: [MissingViewException] View file "C:\xampp\htdocs\Graph\app\View\Users\logout.ctp" is missing.
+#0 C:\xampp\htdocs\Graph\lib\Cake\View\View.php(467): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\Graph\lib\Cake\Controller\Controller.php(955): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\Graph\app\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-03-18 19:53:33 Error: [MissingViewException] View file "C:\xampp\htdocs\Graph\app\View\Users\logout.ctp" is missing.
+#0 C:\xampp\htdocs\Graph\lib\Cake\View\View.php(467): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\Graph\lib\Cake\Controller\Controller.php(955): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\Graph\app\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

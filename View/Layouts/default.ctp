@@ -44,7 +44,14 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+			<h1><?php echo $this->Html->link("Home", '/'); ?></h1>
+			<ul><?php
+					if ($this->Session->read('Auth.User')) { echo '<li>logged</li>';
+					} else {
+					    echo '<li>guest</li>';
+					} 
+				?>
+			</ul>
 		</div>
 		<div id="content">
 

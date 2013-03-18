@@ -7,32 +7,22 @@ App::uses('AppController', 'Controller', 'Security', 'Utility');
  * @property User $User
  */
 class UsersController extends AppController {
+ 
+	//public $components = array('Auth');
+	public $components = array(
+    'Auth' => array(
+        'authenticate' => array(
+            'Form' => array(
+                'fields' => array('username' => 'email')
+            )
+        )
+    )
+);
+
 
 	public function beforeFilter() {
-	    parent::beforeFilter();
-	    $this->Auth->allow('index', 'join');
+	    $this->Auth->allow('index','join', 'logout');
 	}
-	
-	public function beforeSave() {
-	        
-	}
-   
-
-	public $components = array(
-	    'Auth' => array(
-	        'loginAction' => array(
-	            'controller' => 'users'
-	        ),
-	        'authError' => 'Did you really think you are allowed to see that?',
-	        'authenticate' => array(
-	            'Form' => array(
-	                'fields' => array('username' => 'email')
-	            )
-	        )
-	    )
-	);
-	
-
 
 
 	public function index() {
@@ -66,9 +56,18 @@ class UsersController extends AppController {
 	        } else {
 	            $this->Session->setFlash(__('Username or password is incorrect'));
 	        }
+		
 	    }
 	
 	//echo debug($this);
+	}
+
+	public function logout() {
+		if($this->Auth->logout()) {
+			echo "logged out";
+		return true;	
+		};
+		
 	}
 
 	public function home() {
