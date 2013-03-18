@@ -13,11 +13,8 @@ class UsersController extends AppController {
 	    $this->Auth->allow('index', 'join');
 	}
 	
-	public function beforeSave($options = array()) {
-	        if (isset($this->data['User']['password'])) {
-	            $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
-	        }
-	        return true;
+	public function beforeSave() {
+	        
 	}
    
 
@@ -33,7 +30,7 @@ class UsersController extends AppController {
 	            )
 	        )
 	    )
-);
+	);
 	
 
 
@@ -45,11 +42,7 @@ class UsersController extends AppController {
 
 
 	 public function join() {
-		
-	    //$this->set('ip', $client_ip);
-	
 	    if ($this->request->is('post')) {
-	    	//$this->request->data['User']['ip'] = $client_ip;
 	
 			$this->request->data['User']['password'] = md5($this->request->data['User']['password']);
 	    	
@@ -57,7 +50,6 @@ class UsersController extends AppController {
 
 			if ($this->User->save($this->request->data)) {
 	    		$this->Session->setFlash(__('Welcome pledgebay'));
-
 
 	    			$this->redirect(array('action' => 'home'));
 	            } else {
@@ -67,10 +59,9 @@ class UsersController extends AppController {
 	  }
 	 
 	public function login() {
-		//$this->Session->setFlash('Username or password is incorrect');
 	    if ($this->request->is('post')) {
 	    	
-	        if ($this->Auth->login()) {
+	        if ($this->Auth->login($this->request->data)) {
 	            echo "worked";
 	        } else {
 	            $this->Session->setFlash(__('Username or password is incorrect'));
