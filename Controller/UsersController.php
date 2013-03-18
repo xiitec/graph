@@ -10,18 +10,18 @@ class UsersController extends AppController {
  
 	//public $components = array('Auth');
 	public $components = array(
-    'Auth' => array(
-        'authenticate' => array(
-            'Form' => array(
-                'fields' => array('username' => 'email')
-            )
-        )
-    )
-);
+	    'Auth' => array(
+	        'authenticate' => array(
+	            'Form' => array(
+	                'fields' => array('username' => 'email')
+	            )
+	        )
+    	)
+	);
 
 
 	public function beforeFilter() {
-	    $this->Auth->allow('index','join', 'logout');
+	    $this->Auth->allow('index', 'join', 'logout', 'resetpass', 'forgotpass');
 	}
 
 
@@ -33,8 +33,7 @@ class UsersController extends AppController {
 
 	 public function join() {
 	    if ($this->request->is('post')) {
-	
-			$this->request->data['User']['password'] = md5($this->request->data['User']['password']);
+
 	    	
 	    	$this->User->create();
 
@@ -70,10 +69,38 @@ class UsersController extends AppController {
 		
 	}
 
-	public function home() {
+	public function resetpass() {
+		if ($this->Auth->login()) {
+			echo "logged in - logging you out";
+		}
 		
+		if ($this->request->is('post')) {
+				
+			$this->User->id = $this->User->find('first', array('conditions' => array('email' => $this->request->data['User']['email']))); //find the user based on email
+			
+			//debug($this->User->id);
+			$key = md5(date('m-d').'7ff7dsad34');
+			$s1 = $this->User->saveField('hashdate', date('Y-m-d H:i:s')); 	//disable the account
+			$s2 = $this->User->saveField('resetkey', $key);
 		
+			//email the user	
+			if ($s1 && $s2) {
+				$emailcontent = "Please reset your password using ".$key;
+				
+			}
+			
+		}
 	}  
+	
+	public function forgotpass($hash = null) {
+		//find the field based on the hash if its passed in the url
+		if ($hash != null) {
+			$this->User->id = $this->User->find('first', array('conditions' => array('resetkey' => $this->request->data['User'][$hash])));
+		} else {
+			$this->set('test','testval');
+		}				
+		
+	}
 
 
 	public function add() {
