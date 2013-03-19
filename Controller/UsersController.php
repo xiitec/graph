@@ -13,7 +13,7 @@ class UsersController extends AppController {
 	    'Auth' => array(
 	        'authenticate' => array(
 	            'Form' => array(
-	                'fields' => array('username' => 'email')
+	                'fields' => array('username' => 'email', 'password' => 'password')
 	            )
 	        )
     	)
@@ -46,11 +46,11 @@ class UsersController extends AppController {
 	            }
 		}
 	  }
-	 
+
 	public function login() {
 	    if ($this->request->is('post')) {
 	    	
-	        if ($this->Auth->login($this->request->data)) {
+	        if ($this->Auth->login()) {
 	            echo "worked";
 	        } else {
 	            $this->Session->setFlash(__('Username or password is incorrect'));
@@ -93,12 +93,36 @@ class UsersController extends AppController {
 	}  
 	
 	public function forgotpass($hash = null) {
-		//find the field based on the hash if its passed in the url
-		if ($hash != null) {
-			$this->User->id = $this->User->find('first', array('conditions' => array('resetkey' => $this->request->data['User'][$hash])));
+		$hash = mysql_escape_string($hash);
+		if ($hash == null) {
+			$this->Session->setFlash(__('You need a hash'));
+			$this->set('nohash', 1);			
 		} else {
-			$this->set('test','testval');
-		}				
+			$user = $this->User->find('first', array('conditions' => array('resetkey' => $hash)));
+			if($user) {
+				$this->set('nohash', 0);	
+				
+				if ($this->request->is('post')) { //if data is submitted
+					$this->User->id = $user['User']['id'];
+					
+					
+				
+						if($this->data['User']['password'] == $this->data['User']['password_confirm']) {
+							$q = $this->User->saveField('password', $this->data['User']['password']);
+								if($q) {
+									$this->Session->setFlash(__('your password has been reset'));
+								}
+						}
+					
+				}	
+				
+			} else {
+				$this->Session->setFlash(__('bad hash'));
+				$this->set('nohash', 1);	
+			}
+					
+		}
+									
 		
 	}
 

@@ -1,17 +1,25 @@
+
+
 <div class="users form">
+
+<?php if ($nohash != 1) { ?>
+
 <?php echo $this->Form->create('User'); ?>
 	<fieldset>
 		<legend><?php echo __('Reset Password'); ?></legend>
 	<?php
-		if (isset($test)) {
-			echo $test;
+		
 			echo $this->Form->input('password');
 			echo $this->Form->input('password_confirm');
-		}
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
+
+<?php } ?>
+
 </div>
+
+
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
