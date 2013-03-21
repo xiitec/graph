@@ -6,7 +6,7 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('email');
 		echo $this->Form->input('password');
-		echo $this->Form->input('password_again');
+		echo $this->Form->input('password_confirm', array('type'=>'password'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
