@@ -6,14 +6,6 @@ App::uses('AppModel', 'Model');
  */
 class User extends AppModel {
 
-    public function beforeSave($options = array()) {
-        if (isset($this->data['User']['password'])) {
-            $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
-        }
-        return true;
-    }
-	
-	
 	public $displayField = 'name';
 
 /**
@@ -48,9 +40,14 @@ class User extends AppModel {
 				'rule' => 'email',
 				'message' => 'Must be a valid email address'),
 		),
-		'locked' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+		'password' => array(
+			'minlength' => array(
+				'rule' => array('minlength', 4),
+				'message' => 'Password must be at least 4 characters long',
+			'alphanumeric' => array(
+				'rule' => array('alphanumeric'),
+				'message' => 'Must be alphanumeric',
+			),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

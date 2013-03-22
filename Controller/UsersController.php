@@ -13,7 +13,9 @@ class UsersController extends AppController {
 	    'Auth' => array(
 	        'authenticate' => array(
 	            'Form' => array(
-	                'fields' => array('username' => 'email', 'password' => 'password')
+	                'fields' => 
+	                	array('username' => 'email', 
+	                		  'password' => 'password')
 	            )
 	        )
     	)
@@ -33,9 +35,14 @@ class UsersController extends AppController {
 
 	 public function join() {
 	    if ($this->request->is('post')) {
-
+	    	if ($this->request->data['User']['password'] == $this->request->data['User']['password_confirm']) {
+	    		$this->User->create();	
+	    	} else {
+	    		$this->Session->setFlash(__('Your passwords do not match, please try again'));
+				return;
+			}
+			
 	    	
-	    	$this->User->create();
 
 			if ($this->User->save($this->request->data)) {
 	    		$this->Session->setFlash(__('Welcome pledgebay'));
@@ -68,7 +75,8 @@ class UsersController extends AppController {
 		};
 		
 	}
-
+	
+	//this is where you request your key
 	public function resetpass() {
 		if ($this->Auth->login()) {
 			$this->Session->setFlash(__('You have been logged out'));
@@ -77,12 +85,19 @@ class UsersController extends AppController {
 		}
 		if ($this->request->is('post')) {		
 			$this->User->id = $this->User->find('first', array('conditions' => array('email' => $this->request->data['User']['email']))); //find the user based on email
+<<<<<<< HEAD
 			if(!$this->User->id) {
                             $this->Session->setFlash(__('No email like that'));
                             return;
                         }
                         $key = md5(date('H:i:s').'7ff7dsad34');
 			$s1 = $this->User->saveField('hashdate', date('Y-m-d H:i:s'));
+=======
+			
+			//debug($this->User->id);
+			$key = md5(date('m-d').'7ff7dsad34');
+			$s1 = $this->User->saveField('hashdate', date('Y-m-d H:i:s')); 
+>>>>>>> 0f7010dc9e98953b8b730a5a7528e0c278373c16
 			$s2 = $this->User->saveField('resetkey', $key);
 		
 			//email the user	
@@ -95,6 +110,7 @@ class UsersController extends AppController {
 		}
 	}  
 	
+	//this is where you come with your key
 	public function forgotpass($hash = null) {
 		$hash = mysql_escape_string($hash);
 		if ($hash == null) {
@@ -103,6 +119,7 @@ class UsersController extends AppController {
 		} else {
 			$user = $this->User->find('first', array('conditions' => array('resetkey' => $hash)));
 			if($user) {
+<<<<<<< HEAD
 				$this->set('nohash', 0);
 				if ($this->request->is('post')) { //if data is submitted
 					$this->User->id = $user['User']['id'];
@@ -113,18 +130,42 @@ class UsersController extends AppController {
                                                                         $this->redirect(array('action'=>'login'));                                                                        
                                                                 }
                                                 }					
+=======
+				$this->set('nohash', 0);	
+				
+				if ($this->request->is('post')) { //if form is submitted
+					$this->User->id = $user['User']['id'];
+				
+					if ($this->time_diff($user['User']['hashdate']) > 5) {
+						$this->Session->setFlash(__('Your hash is older than 5 days, please request a new one'));	
+						return;
+					}
+				
+						if($this->data['User']['password'] == $this->data['User']['password_confirm']) {
+							$q = $this->User->saveField('password', $this->data['User']['password']);
+								if($q) {
+									$this->Session->setFlash(__('your password has been reset'));
+								}
+						}					
+>>>>>>> 0f7010dc9e98953b8b730a5a7528e0c278373c16
 				}	
 				
 			} else {
 				$this->Session->setFlash(__('bad hash'));
 				$this->set('nohash', 1);	
-			}
-					
-		}
-									
-		
+			}					
+		}		
 	}
 
+
+	function time_diff($dt1,$dt2=null){
+		if ($dt2==null) {
+			$dt2 = date('Y-m-d H:i:m');		
+		}
+		$seconds_diff = strtotime($dt2) - strtotime($dt1);	
+		return floor($seconds_diff/3600/24);
+	
+	}
 
 	public function add() {
 		if ($this->request->is('post')) {
