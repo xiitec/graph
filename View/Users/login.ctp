@@ -13,6 +13,7 @@
 <?php echo $this->Form->end(__('Log In >>')); ?>
 	<ul>
 		<li><?php echo $this->Html->link(__('Sign Up'), array('action' => 'join')); ?></li>
+                <li><?php echo $this->Html->link(__('Forgot your password?'), array('action' => 'resetpass')); ?></li>
 	</ul>
 </div>
 

@@ -771,3 +771,23 @@
 #1 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #2 C:\xampp\htdocs\Graph\app\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2013-03-21 07:18:08 Error: [MissingActionException] Action UsersController::home() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'home',
+)
+Request URL: /users/home
+Stack Trace:
+#0 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\Graph\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\Graph\app\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-03-22 07:14:03 Error: [MissingControllerException] Controller class ResetpassController could not be found.
+Exception Attributes: array (
+  'class' => 'ResetpassController',
+  'plugin' => NULL,
+)
+Request URL: /resetpass/bfc769b682ac375f3588df9270cd3aae
+Stack Trace:
+#0 C:\xampp\htdocs\Graph\app\webroot\index.php(97): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

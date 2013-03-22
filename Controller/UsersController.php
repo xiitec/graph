@@ -71,22 +71,25 @@ class UsersController extends AppController {
 
 	public function resetpass() {
 		if ($this->Auth->login()) {
-			echo "logged in - logging you out";
+			$this->Session->setFlash(__('You have been logged out'));
+                        $this->Auth->logout();
+                        return;
 		}
-		
-		if ($this->request->is('post')) {
-				
+		if ($this->request->is('post')) {		
 			$this->User->id = $this->User->find('first', array('conditions' => array('email' => $this->request->data['User']['email']))); //find the user based on email
-			
-			//debug($this->User->id);
-			$key = md5(date('m-d').'7ff7dsad34');
-			$s1 = $this->User->saveField('hashdate', date('Y-m-d H:i:s')); 	//disable the account
+			if(!$this->User->id) {
+                            $this->Session->setFlash(__('No email like that'));
+                            return;
+                        }
+                        $key = md5(date('H:i:s').'7ff7dsad34');
+			$s1 = $this->User->saveField('hashdate', date('Y-m-d H:i:s'));
 			$s2 = $this->User->saveField('resetkey', $key);
 		
 			//email the user	
 			if ($s1 && $s2) {
-				$emailcontent = "Please reset your password using ".$key;
-				
+				$emailcontent = 'Go to <a href="/users/forgotpass/'.$key.'">Link</a>';
+                                //echo $emailcontent;
+				$this->Session->setFlash(__('You have been sent an email with your reset code '.$emailcontent));
 			}
 			
 		}
@@ -100,20 +103,16 @@ class UsersController extends AppController {
 		} else {
 			$user = $this->User->find('first', array('conditions' => array('resetkey' => $hash)));
 			if($user) {
-				$this->set('nohash', 0);	
-				
+				$this->set('nohash', 0);
 				if ($this->request->is('post')) { //if data is submitted
 					$this->User->id = $user['User']['id'];
-					
-					
-				
 						if($this->data['User']['password'] == $this->data['User']['password_confirm']) {
 							$q = $this->User->saveField('password', $this->data['User']['password']);
 								if($q) {
-									$this->Session->setFlash(__('your password has been reset'));
-								}
-						}
-					
+									$this->Session->setFlash(__('your password has been reset, please log in'));
+                                                                        $this->redirect(array('action'=>'login'));                                                                        
+                                                                }
+                                                }					
 				}	
 				
 			} else {
