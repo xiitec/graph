@@ -15,7 +15,7 @@ class UsersController extends AppController {
 	            'Form' => array(
 	                'fields' => 
 	                	array('username' => 'email', 
-	                		  'password' => 'password')
+                                      'password' => 'password')
 	            )
 	        )
     	)
@@ -24,6 +24,7 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
 	    $this->Auth->allow('index', 'join', 'logout', 'resetpass', 'forgotpass');
+            
 	}
 
 
