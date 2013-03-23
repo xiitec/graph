@@ -10,11 +10,10 @@
 	<?php
 		
 			echo $this->Form->input('password');
-<<<<<<< HEAD
+
 			echo $this->Form->input('password_confirm', array('type'=>'password'));
-=======
-			echo $this->Form->input('password_confirm', array('type'=>'password')););
->>>>>>> 0f7010dc9e98953b8b730a5a7528e0c278373c16
+
+			echo $this->Form->input('password_confirm', array('type'=>'password'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

@@ -85,19 +85,13 @@ class UsersController extends AppController {
 		}
 		if ($this->request->is('post')) {		
 			$this->User->id = $this->User->find('first', array('conditions' => array('email' => $this->request->data['User']['email']))); //find the user based on email
-<<<<<<< HEAD
 			if(!$this->User->id) {
                             $this->Session->setFlash(__('No email like that'));
                             return;
                         }
                         $key = md5(date('H:i:s').'7ff7dsad34');
 			$s1 = $this->User->saveField('hashdate', date('Y-m-d H:i:s'));
-=======
-			
-			//debug($this->User->id);
-			$key = md5(date('m-d').'7ff7dsad34');
-			$s1 = $this->User->saveField('hashdate', date('Y-m-d H:i:s')); 
->>>>>>> 0f7010dc9e98953b8b730a5a7528e0c278373c16
+
 			$s2 = $this->User->saveField('resetkey', $key);
 		
 			//email the user	
@@ -109,7 +103,8 @@ class UsersController extends AppController {
 			
 		}
 	}  
-	
+
+        
 	//this is where you come with your key
 	public function forgotpass($hash = null) {
 		$hash = mysql_escape_string($hash);
@@ -119,7 +114,6 @@ class UsersController extends AppController {
 		} else {
 			$user = $this->User->find('first', array('conditions' => array('resetkey' => $hash)));
 			if($user) {
-<<<<<<< HEAD
 				$this->set('nohash', 0);
 				if ($this->request->is('post')) { //if data is submitted
 					$this->User->id = $user['User']['id'];
@@ -129,8 +123,9 @@ class UsersController extends AppController {
 									$this->Session->setFlash(__('your password has been reset, please log in'));
                                                                         $this->redirect(array('action'=>'login'));                                                                        
                                                                 }
-                                                }					
-=======
+                                                }
+                                }
+                                
 				$this->set('nohash', 0);	
 				
 				if ($this->request->is('post')) { //if form is submitted
@@ -147,7 +142,6 @@ class UsersController extends AppController {
 									$this->Session->setFlash(__('your password has been reset'));
 								}
 						}					
->>>>>>> 0f7010dc9e98953b8b730a5a7528e0c278373c16
 				}	
 				
 			} else {

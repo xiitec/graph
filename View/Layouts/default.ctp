@@ -45,7 +45,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<div id="container">
 		<div id="header">
 			<h1><?php echo $this->Html->link("Home", '/'); ?></h1>
-			<ul class="actions" style="float:right; padding-bottom: 10px;"><?php
+			<ul class="actions" style="float:right; margin-bottom: s: 10px;"><?php
 					if ($this->Session->read('Auth.User')) {
                                             echo '<li>'. $this->Html->link("Log Out", "/users/logout")."</li>";
 					} else {
