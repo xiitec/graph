@@ -28,45 +28,52 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-
-		echo $this->Html->css('cake.generic');
-
+		echo $this->Html->css('bootstrap.min');
+		echo $this->Html->css('common');
+		echo $this->Html->script('bootstrap.min');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-	
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    
-  
-	
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link("Home", '/'); ?></h1>
-			<ul class="actions" style="float:right; margin-bottom: s: 10px;"><?php
-					if ($this->Session->read('Auth.User')) {
-                                            echo '<li>'. $this->Html->link("Log Out", "/users/logout")."</li>";
-					} else {
-					    echo "<li>". $this->Html->link("Log In", "/users/login")."</li>";
-					} 
-				?>
-			</ul>
+	<!-- Header -->
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div id="header" class="navbar span12">
+			  	<div class="navbar-inner">
+		  			<?php echo $this->Html->link(
+							$this->Html->image('logo.png', array('class' => 'pull-left logo', 'alt' => $cakeDescription, 'border' => '0')), '/', array( 'escape' => false)
+						);
+					?>
+		  			<a class="brand" href="/">ProDono</a>
+					<ul class="nav">
+				      <li class="active"><?php echo $this->Html->link("Home", '/'); ?></li>
+				      <li><a href="#"> Service Provider </a></li>
+				      <li><a href="#"> Service Receiver </a></li>
+				      <li><a href="#"> Charity </a></li>
+				    </ul>
+			  	</div>
+			</div>
 		</div>
-		<div id="content">
-
-			<?php echo $this->Session->flash(); ?>
-
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
+		<div class="row-fluid" id="pagebody">
+			<div class="row-fluid">
+				<!-- Content -->
+				<div class="span12" id="content">
+					<?php echo $this->Session->flash(); ?>
+					<?php echo $this->fetch('content'); ?>
+				</div>
+				<!-- Footer -->
+				<div id="footer" class="navbar navbar-inverse span12">
+					<div class="navbar-inner">
+						<ul class="nav pull-right">
+					      <li><a href="#"> About</a></li>
+					      <li><a href="#"> Contact</a></li>
+					    </ul>
+				  	</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>

@@ -1,0 +1,15 @@
+.infobox {
+	height:680px;
+}
+
+#filler {
+	height:300px;
+}
+
+#provider {
+	background-color: black;
+}
+
+#receiver {
+	background-color: #555;
+}
