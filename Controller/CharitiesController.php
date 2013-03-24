@@ -45,10 +45,10 @@ class CharitiesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Charity->create();
 			if ($this->Charity->save($this->request->data)) {
-                                $this->Session->setFlash('The charity poo', 'default', array('class' => 'alert alert-success')); //green
+                                $this->Session->setFlash('The charity has been saved', 'default', array('class' => 'alert alert-success')); //green
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('The charity poo', 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash('Failed to save the charity', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 	}

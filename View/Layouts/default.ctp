@@ -49,16 +49,16 @@ $cakeDescription = __d('cake_dev', 'ProDono.co! Offer Service | Recieve Service 
 					?>
 		  			<a class="brand" href="/">ProDono</a>
 					<ul class="nav">
-				      <li class="active"><?php echo $this->Html->link("Home", '/'); ?></li>
-				      <li><a href="#"> Service Provider </a></li>
-				      <li><a href="#"> Service Receiver </a></li>
-				      <li><a href="#"> Charity </a></li>
+				      <li class="<?php echo $active;?>"><?php echo $this->Html->link("Home", '/'); ?></li>
+				      <li class="<?php echo $active;?>"><a href="/join"> Sign Up Now</a></li>
+				      <li class="<?php echo $active;?>"><a href="/about"> About</a></li>
+				      <li class="<?php echo $active;?>"><a href="/contact"> Contact Us </a></li>
                         
                                      <?php
 					if ($this->Session->read('Auth.User')) {
                                             echo '<li>'. $this->Html->link("Log Out", "/users/logout")."</li>";
 					} else {
-					    echo "<li>". $this->Html->link("Log In", "/users/login")."</li>";
+					    echo '<li>'. $this->Html->link("Log In", "/users/login")."</li>";
 					} 
                                     ?>
 				    </ul>
@@ -76,8 +76,8 @@ $cakeDescription = __d('cake_dev', 'ProDono.co! Offer Service | Recieve Service 
 				<div id="footer" class="navbar navbar-inverse span12">
 					<div class="navbar-inner">
 						<ul class="nav pull-right">
-					      <li><a href="#"> About</a></li>
-					      <li><a href="#"> Contact</a></li>
+					      <li><a href="/about"> About</a></li>
+					      <li><a href="/contact"> Contact</a></li>
 					    </ul>
 				  	</div>
 				</div>
@@ -85,5 +85,21 @@ $cakeDescription = __d('cake_dev', 'ProDono.co! Offer Service | Recieve Service 
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
+
+        
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1496966-9']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+        
 </body>
 </html>
