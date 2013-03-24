@@ -63,12 +63,11 @@ class UsersController extends AppController {
 	            $this->Session->setFlash('Welcome back', 'default', array( 'class' => 'alert alert-success'));
 	            $this->redirect('/users/view/' . $this->Auth->user('id'));
 	        } else {
-	            $this->Session->setFlash(__('Username or password is incorrect'));
+	            $this->Session->setFlash('Please try', 'default', array('class' => 'alert alert-success'));
 	        }
 		
 	    }
-	
-	//echo debug($this);
+
 	}
 
 	public function logout() {
