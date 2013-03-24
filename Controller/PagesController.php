@@ -83,7 +83,14 @@ class PagesController extends AppController {
 				    ->to('ryanbooth77@gmail.com')
 				    ->subject('Contact from ' . $this->request->data['User']['name'])
 				    ->send($this->request->data['User']['message']);
-        	}
+        	} 
+                
+                if($Email) {
+                    $this->Session->setFlash('Thanks for your message, we will be in touch shortly', 'default', array('class' => 'alert alert-success'));
+                } else {
+                    $this->Session->setFlash('The email failed to send, please try again', 'default', array('class' => 'alert alert-danger'));
+                    
+                }
                 
                 $this->set('a','active');
         

@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller', 'Security', 'Utility');
+App::uses('CakeEmail', 'Network/Email');
  
  /*
  * Users Controller
@@ -102,10 +103,21 @@ class UsersController extends AppController {
 		
 			//email the user	
 			if ($s1 && $s2) {
-				$emailcontent = 'Go to <a href="/users/forgotpass/'.$key.'">Link</a>';
-                                //echo $emailcontent;
-				$this->Session->setFlash(__('You have been sent an email with your reset code '.$emailcontent));
-			}
+				$emailcontent = 'Please go to <a href="http://prodono.co/users/forgotpass/'.$key.'">This Link</a> to reset your password';
+                                
+                            $Email = new CakeEmail();
+				$Email->from(array('admin@prodono.co' => 'ProDono'))
+				    ->to($this->request->data['User']['email'])
+				    ->subject('Password reset from Prodono')
+				    ->send($emailcontent);
+                        
+                            if($Email) {
+                                $this->Session->setFlash('Please check your email for instructions', 'default', array('class' => 'alert alert-success'));
+                            } else {
+                                $this->Session->setFlash('The email failed to send, please try again', 'default', array('class' => 'alert alert-danger'));
+
+                            }
+                        }
 			
 		}
 	}  
