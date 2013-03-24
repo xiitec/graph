@@ -20,6 +20,7 @@
  */
 
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 
 /**
  * Static content controller
@@ -74,9 +75,13 @@ class PagesController extends AppController {
 	}
         
         public function contact() {
-                
-                $this->set('active','active');
-        
+            if ($this->request->is('post')) {
+            	$Email = new CakeEmail();
+				$Email->from(array( $this->request->data('email') => 'ProDono'))
+				    ->to('ryanbooth77@gmail.com')
+				    ->subject('Contact from ' . $this->request->data('name'))
+				    ->send($this->request->data('message'));
+        	}
         }
         
         public function about() {
