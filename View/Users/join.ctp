@@ -15,10 +15,7 @@
 <?php echo $this->Form->end(__('Submit')); ?>
 
 
-<div class="span5 row-fluid hero-unit">
-    
-    test
-</div>
+
 
 
 </div>
