@@ -41,33 +41,34 @@ $cakeDescription = __d('cake_dev', 'ProDono.co! Offer Service | Recieve Service 
 	<!-- Header -->
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<div id="header" class="navbar span12">
-			  	<div class="navbar-inner">
-		  			<?php echo $this->Html->link(
-							$this->Html->image('logo.png', array('class' => 'pull-left logo', 'alt' => $cakeDescription, 'border' => '0')), '/', array( 'escape' => false)
-						);
-					?>
-		  			<a class="brand" href="/">ProDono</a>
-					<ul class="nav">
-				      <li class="<?php if(isset($home))echo "active";?>"><?php echo $this->Html->link("Home", '/'); ?></li>
-				      <li class="<?php if(isset($about))echo "active";?>"><a href="/about">About</a></li>
-				      <li class="<?php if(isset($browse))echo "active";?>"><a href="/listings/index">Browse Services</a></li>
-	                    <?php
-						if ($this->Session->read('Auth.User')) {
-							echo '<li>'. $this->Html->link("Offer/Request a Service", "/listings/add")."</li>";
-							$user_id = $this->Session->read('Auth.User');
-							echo '<li>'. $this->Html->link("Profile", "/users/view/". $user_id['id'] )."</li>";
-	                    	echo '<li>'. $this->Html->link("Log Out", "/users/logout")."</li>";
-						} else {
-						    echo '<li>'. $this->Html->link("Sign Up Now", "/join")."</li>";
-						    echo '<li>'. $this->Html->link("Log In", "/users/login")."</li>";
-						} 
-	                    ?>
-				    </ul>
+			<div id="header" class="navbar-fixed-top span12">
+			  	<div class="navbar navbar-inner">
+			  		<div id="nav">
+			  			<?php echo $this->Html->link(
+								$this->Html->image('prodono-small.png', array('class' => 'pull-left logo', 'alt' => 'Provide services for donations', 'border' => '0')), '/', array( 'escape' => false)
+							);
+						?>
+						<ul class="nav pull-right">
+					      <li class="<?php if(isset($home))echo "active";?>"><?php echo $this->Html->link("Home", '/'); ?></li>
+					      <li class="<?php if(isset($about))echo "active";?>"><a href="/about">About</a></li>
+					      <li class="<?php if(isset($browse))echo "active";?>"><a href="/listings/index">Browse Services</a></li>
+		                    <?php
+							if ($this->Session->read('Auth.User')) {
+								echo '<li>'. $this->Html->link("Offer/Request a Service", "/listings/add")."</li>";
+								$user_id = $this->Session->read('Auth.User');
+								echo '<li>'. $this->Html->link("Profile", "/users/view/". $user_id['id'] )."</li>";
+		                    	echo '<li>'. $this->Html->link("Log Out", "/users/logout")."</li>";
+							} else {
+							    echo '<li>'. $this->Html->link("Sign Up Now", "/join")."</li>";
+							    echo '<li>'. $this->Html->link("Log In", "/users/login")."</li>";
+							} 
+		                    ?>
+					    </ul>
+					</div>
 			  	</div>
 			</div>
 		</div>
-		<div class="row-fluid" id="pagebody">
+		<div class="row-fluid" id="pagebody" style="margin-top:60px">
 			<div class="row-fluid">
 				<!-- Content -->
 				<div class="span12" id="content">

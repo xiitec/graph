@@ -19,7 +19,7 @@
 		</div>
 		<div class="listings index">
 			<h2><?php echo __('Current Listings'); ?></h2>
-			<table cellpadding="0" cellspacing="0" class="table-striped">
+			<table class="table">
 			<tr>
 				<th><?php echo $this->Paginator->sort('service_id'); ?></th>
 				<th><?php echo $this->Paginator->sort('summary'); ?></th>
@@ -45,7 +45,7 @@
 			</table>
 			<!-- Archive -->
 			<h2><?php echo __('Archived Listings'); ?></h2>
-			<table cellpadding="0" cellspacing="0" class="table-striped">
+			<table class="table">
 			<tr>
 				<th><?php echo $this->Paginator->sort('service_id'); ?></th>
 				<th><?php echo $this->Paginator->sort('summary'); ?></th>
