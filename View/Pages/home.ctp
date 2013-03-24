@@ -24,30 +24,43 @@
 	<div class="span6">
 		<img src="/img/logo.png" class="pull-left"></img>
 		<h2>Welcome to ProDono!</h2><br>
-		<p>We link Bob's Accounting who wants to provide professional services for free
-		   with Fred who needs his accounting done... BUT... theres a twist...</p>
-		<p>Fred donates money to a Charity that Bob really likes.</p>
+		<p>We link people with skills to  customers who need their service.</p>
+		<p>But instead of paying them directly, the money goes to charity.</p>
 	</div>
 	<!-- Choice box -->
-	<div class="span6">
-		You want to:
-		<br><a class="btn span12" href="#provider">
-			Provide a Service
-		</a><br><br>
-		<a class="btn span12" href="#receiver">Click me
-
+	<div class="span6" style="margin-top:30px">
+		I want to:
+		<br><a class="btn btn-info span12" href="#provider">
+			<h3>Provide a Service</h3>
+		</a><br><br><br>
+		<a class="btn btn-primary span12" href="#receiver">
+			<h3>Donate for Services</h3>
 		</a>
 	</div>
 </div>
 <!-- Filler -->
 <div id="filler" class="span12 row-fluid infobox">
-	Filler
+
 </div>
 <!-- Service Provider -->
 <div id="provider" class="span12 row-fluid infobox">
-	Service Provider
+	<img class="span4" src="/img/logo.png"></img>
+	<div class="span8">
+		<h1>You've got skills to give.</h1>
+		<br><br>
+		<p class="lead">You're an Accountant, or a Lawyer, an IT service provider, or even a designer.
+		We'll link you up with someone who needs those services. <br>
+		Then - as a show of gratitude - that person will donate to a quality charity that you love!</p>
+		<a href="#" class="btn btn-success btn-large pull-right">Sign up now!</a>
+	</div>
 </div>
 <!-- Service Receiver -->
 <div id="receiver" class="span12 row-fluid infobox">
-	Service Receiver
+	<img class="span4" src="/img/logo.png"></img>
+	<div class="span8">
+		<h1>You need a service.</h1>
+		<br><br>
+		<p class="lead">You need some work done... legal services, taxes, website maintenance... find someone willing to do that work for free and give the money to charity instead.<br> Everybody wins!</p>
+		<a href="#" class="btn btn-success btn-large pull-right">Start now!</a>
+	</div>
 </div>

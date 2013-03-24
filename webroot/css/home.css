@@ -1,5 +1,6 @@
 .infobox {
 	height:680px;
+	padding: 100px;
 }
 
 #filler {
@@ -7,9 +8,9 @@
 }
 
 #provider {
-	background-color: black;
+
 }
 
 #receiver {
-	background-color: #555;
+	
 }
