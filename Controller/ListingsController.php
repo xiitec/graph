@@ -68,12 +68,9 @@ class ListingsController extends AppController {
  * @return void
  */
 	public function add() {
-		if ($this->request->is('post')) {
+		if ($this->request->is('post') ) {
 			$this->Listing->create();
 			if ($this->Listing->save($this->request->data)) {
-                                
-                $this->Listing->user_id = $this->Auth->user('id'); //so we dont need the dropdown
-                                
 				$this->Session->setFlash('The listing has been saved', 'default', array( 'class' => 'alert alert-success'));
 				$this->redirect('/users/view/' . $this->Auth->user('id'));
 			} else {
@@ -82,8 +79,8 @@ class ListingsController extends AppController {
 		}
 		$service = 1;
 		$services = $this->Listing->Service->find('list');
-		$users = $this->Listing->User->find('list');
-		$this->set(compact('service', 'services', 'users'));
+		$user = $this->Auth->user('id');
+		$this->set(compact('service', 'services', 'user'));
 	}
 
 /**
