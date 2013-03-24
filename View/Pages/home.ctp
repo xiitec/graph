@@ -48,8 +48,8 @@
 	<div class="span8">
 		<h1>You've got skills to give.</h1>
 		<br><br>
-		<p class="lead">You're an Accountant, or a Lawyer, an IT service provider, or even a designer.
-		We'll link you up with someone who needs those services. <br>
+		<p class="lead">You're an Accountant, a public speaker, an IT service provider, a designer, an amazing bagpiper... <br><br>
+		We'll link you up with someone who needs those services. <br><br>
 		Then - as a show of gratitude - that person will donate to a quality charity that you love!</p>
 		<a href="#" class="btn btn-success btn-large pull-right">Sign up now!</a>
 	</div>
@@ -60,7 +60,9 @@
 	<div class="span8">
 		<h1>You need a service.</h1>
 		<br><br>
-		<p class="lead">You need some work done... legal services, taxes, website maintenance... find someone willing to do that work for free and give the money to charity instead.<br> Everybody wins!</p>
+		<p class="lead">You need some work done: <br><br>
+			legal services, taxes, website maintenance... <br><br>
+			Find someone willing to do that work for free and give the money to charity instead.<br> Everybody wins!</p>
 		<a href="#" class="btn btn-success btn-large pull-right">Start now!</a>
 	</div>
 </div>
