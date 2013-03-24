@@ -16,7 +16,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$cakeDescription = __d('cake_dev', 'ProDono.co! Offer Service | Recieve Service | Donate to Charity');
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,6 +53,14 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				      <li><a href="#"> Service Provider </a></li>
 				      <li><a href="#"> Service Receiver </a></li>
 				      <li><a href="#"> Charity </a></li>
+                        
+                                     <?php
+					if ($this->Session->read('Auth.User')) {
+                                            echo '<li>'. $this->Html->link("Log Out", "/users/logout")."</li>";
+					} else {
+					    echo "<li>". $this->Html->link("Log In", "/users/login")."</li>";
+					} 
+                                    ?>
 				    </ul>
 			  	</div>
 			</div>
