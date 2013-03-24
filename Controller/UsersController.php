@@ -57,6 +57,7 @@ class UsersController extends AppController {
 		}
 		$charities = $this->User->Charity->find('list');
 		$this->set(compact('charities'));
+                $this->set('join','1');
 	  }
 
 	public function login() {

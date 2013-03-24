@@ -82,9 +82,14 @@ class PagesController extends AppController {
 				    ->subject('Contact from ' . $this->request->data('name'))
 				    ->send($this->request->data('message'));
         	}
+                
+                $this->set('a','active');
+        
         }
         
         public function about() {
+            
+                $this->set('about','1');
         
         
         }
