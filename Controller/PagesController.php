@@ -77,10 +77,10 @@ class PagesController extends AppController {
         public function contact() {
             if ($this->request->is('post')) {
             	$Email = new CakeEmail();
-				$Email->from(array( $this->request->data('email') => 'ProDono'))
+				$Email->from(array( $this->request->data['User']['email'] => 'ProDono'))
 				    ->to('ryanbooth77@gmail.com')
-				    ->subject('Contact from ' . $this->request->data('name'))
-				    ->send($this->request->data('message'));
+				    ->subject('Contact from ' . $this->request->data['User']['name'])
+				    ->send($this->request->data['User']['message']);
         	}
                 
                 $this->set('a','active');
