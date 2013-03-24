@@ -27,12 +27,14 @@ class CharitiesController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-		if (!$this->Charity->exists($id)) {
+            if (!$this->Charity->exists($id)) {
 			throw new NotFoundException(__('Invalid charity'));
 		}
 		$options = array('conditions' => array('Charity.' . $this->Charity->primaryKey => $id));
 		$this->set('charity', $this->Charity->find('first', $options));
-	}
+	
+                
+        }
 
 /**
  * add method
@@ -43,10 +45,10 @@ class CharitiesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Charity->create();
 			if ($this->Charity->save($this->request->data)) {
-				$this->Session->setFlash(__('The charity has been saved'));
+                                $this->Session->setFlash('The charity has been saved', 'default', array('class' => 'alert alert-success')); //green
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The charity could not be saved. Please, try again.'));
+				$this->Session->setFlash('Failed to save the charity', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 	}
@@ -67,7 +69,7 @@ class CharitiesController extends AppController {
 				$this->Session->setFlash(__('The charity has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The charity could not be saved. Please, try again.'));
+				$this->Session->setFlash('The charity could not be saved. Please, try again.');
 			}
 		} else {
 			$options = array('conditions' => array('Charity.' . $this->Charity->primaryKey => $id));

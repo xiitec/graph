@@ -3,7 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Contact Us'); ?></legend>
 
-                <p>Please send us any questions or comments, we'll get back to
+                <p>Please send us any questions or comments, we'll get back to you
                    promptly!
                 </p>
                 
