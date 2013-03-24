@@ -75,11 +75,13 @@ class PagesController extends AppController {
         
         public function contact() {
                 
-                $this->set('active','active');
+                $this->set('a','active');
         
         }
         
         public function about() {
+            
+                $this->set('about','1');
         
         
         }

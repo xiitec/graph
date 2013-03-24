@@ -28,6 +28,7 @@
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
         Router::connect('/contact', array('controller' => 'pages', 'action' => 'contact'));
         Router::connect('/about', array('controller' => 'pages', 'action' => 'about'));
+        Router::connect('/join', array('controller' => 'users', 'action' => 'join'));
 
         
  /**
