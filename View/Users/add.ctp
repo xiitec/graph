@@ -5,8 +5,8 @@
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('email');
-		echo $this->Form->input('locked');
-		echo $this->Form->input('resetkey');
+		echo $this->Form->input('password');
+		echo $this->Form->input('Charity');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
@@ -16,5 +16,9 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Listings'), array('controller' => 'listings', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Listing'), array('controller' => 'listings', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Charities'), array('controller' => 'charities', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Charity'), array('controller' => 'charities', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

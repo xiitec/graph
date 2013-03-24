@@ -3,13 +3,17 @@ App::uses('AppModel', 'Model');
 /**
  * User Model
  *
+ * @property Listing $Listing
+ * @property Charity $Charity
  */
 class User extends AppModel {
 
 	public $displayField = 'name';
 
-            public function beforeSave($options = array()) {
-        if (isset($this->data['User']['password'])) {
+        
+        public function beforeSave($options = array()) {
+
+            if (isset($this->data['User']['password'])) {
             $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
         }
         return true;
@@ -63,4 +67,48 @@ class User extends AppModel {
 			),
 		),
 	);
+
+
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'Listing' => array(
+			'className' => 'Listing',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
+        
+ public $hasAndBelongsToMany = array(
+        'Charity' =>
+            array(
+                'className'              => 'Charity',
+                'joinTable'              => 'charities_users',
+                'foreignKey'             => 'user_id',
+                'associationForeignKey'  => 'charity_id',
+                'unique'                 => true,
+                'conditions'             => '',
+                'fields'                 => '',
+                'order'                  => '',
+                'limit'                  => '',
+                'offset'                 => '',
+                'finderQuery'            => '',
+                'deleteQuery'            => '',
+                'insertQuery'            => ''
+            )
+    );
+
 }
