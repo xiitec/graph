@@ -26,10 +26,6 @@ class User extends AppModel {
  */
 	public $validate = array(
 		'name' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
-				'message' => 'Must be alphanumeric',
-			),
 			'maxlength' => array(
 				'rule' => array('maxlength', 45),
 				'message' => 'Must be under 45 characters',

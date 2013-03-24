@@ -9,7 +9,6 @@ App::uses('CakeEmail', 'Network/Email');
  */
 class UsersController extends AppController {
     
-    var $scaffold;
  
 	//public $components = array('Auth');
 	public $components = array(
@@ -45,13 +44,11 @@ class UsersController extends AppController {
 	    		$this->Session->setFlash(__('Your passwords do not match, please try again'));
 				return;
 			}
-			
-	    	
 
 			if ($this->User->save($this->request->data)) {
-	    		$this->Session->setFlash(__('Welcome pledgebay'));
-
-	    			$this->redirect(array('action' => 'home'));
+	    		$this->Session->setFlash('Welcome to ProDono', 'default', array( 'class' => 'alert alert-success'));
+	    			$this->Auth->login();
+	    			$this->redirect('/users/view/' . $this->User->id);
 	            } else {
 	            	$this->Session->setFlash(__('Please fix the problems below and try again'));
 	            }
@@ -63,7 +60,6 @@ class UsersController extends AppController {
 
 	public function login() {
 	    if ($this->request->is('post')) {
-	    	
 	        if ($this->Auth->login()) {
 	            echo "worked";
 	        } else {
@@ -77,8 +73,8 @@ class UsersController extends AppController {
 
 	public function logout() {
 		if($this->Auth->logout()) {
-			echo "logged out";
-		return true;	
+			$this->Session->setFlash('You have been logged out', 'default', array('class' => 'alert alert-success'));
+                        return true;	
 		};
 		
 	}
@@ -179,19 +175,19 @@ class UsersController extends AppController {
 	
 	}
 
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->User->create();
-			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash('saved', 'default', array('class' => 'alert alert-danger'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash('not saved', 'default', array('class' => 'alert alert-danger'));
-			}
-		}
-		$charities = $this->User->Charity->find('list');
-		$this->set(compact('charities'));
-	}
+	// public function add() {
+	// 	if ($this->request->is('post')) {
+	// 		$this->User->create();
+	// 		if ($this->User->save($this->request->data)) {
+	// 			$this->Session->setFlash(__('The employment has been saved'));
+	// 			$this->redirect('/users/view/' . $this->User->id);
+	// 		} else {
+	// 			$this->Session->setFlash(__('The employment could not be saved. Please, try again.'));
+	// 		}
+	// 	}
+	// 	$charities = $this->User->Charity->find('list');
+	// 	$this->set(compact('charities'));
+	// }
 
 
 

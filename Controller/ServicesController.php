@@ -14,6 +14,12 @@ class ServicesController extends AppController {
  * @var array
  */
 	public $components = array('Auth');
+        
+        
+        public function beforeFilter() {
+	    $this->Auth->allow('index');
+            
+	}
 
 /**
  * index method
