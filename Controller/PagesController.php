@@ -76,6 +76,8 @@ class PagesController extends AppController {
         
         public function contact() {
             if ($this->request->is('post')) {
+                echo $this->request->data('email');
+                        
             	$Email = new CakeEmail();
 				$Email->from(array( $this->request->data('email') => 'ProDono'))
 				    ->to('ryanbooth77@gmail.com')
