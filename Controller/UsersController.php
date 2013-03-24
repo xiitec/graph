@@ -61,14 +61,13 @@ class UsersController extends AppController {
 	public function login() {
 	    if ($this->request->is('post')) {
 	        if ($this->Auth->login()) {
-	            echo "worked";
+	            $this->Session->setFlash('You are now logged in', 'default', array('class' => 'alert alert-success'));
 	        } else {
-	            $this->Session->setFlash(__('Username or password is incorrect'));
+	            $this->Session->setFlash('Please try', 'default', array('class' => 'alert alert-success'));
 	        }
 		
 	    }
-	
-	//echo debug($this);
+
 	}
 
 	public function logout() {

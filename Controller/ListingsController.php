@@ -15,11 +15,33 @@ class ListingsController extends AppController {
  */
 	public $components = array('Auth');
 
-/**
- * index method
- *
- * @return void
- */
+        public function search() {
+            if($this->request->data) {
+                if (empty($this->request->data['Listing']['search'])) {
+                    $this->Session->setFlash('Please enter a search string', 'default', array( 'class' => 'alert alert-warning'));
+                    return;
+                }
+            
+                $val = $this->request->data['Listing']['search'];  
+            
+                $this->paginate = array(
+                  'conditions' => array('Listing.summary LIKE' => '%'.$val.'%',
+                  'Listing.pitcher_or_catcher =' => $this->request->data['Listing']['pitcher_or_catcher']));
+               
+                
+                
+                $listing = $this->paginate('Listing');
+                $this->set('listings', $listing);
+                
+            } 
+            
+                //just search for everything
+		//$this->Listing->recursive = 0;
+		//$this->set('listings', $this->paginate());
+	}
+        
+        
+        
 	public function index() {
 		$this->Listing->recursive = 0;
 		$this->set('listings', $this->paginate());
