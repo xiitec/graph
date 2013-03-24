@@ -39,18 +39,16 @@ class UsersController extends AppController {
 	 public function join() {
 	    if ($this->request->is('post')) {
 	    	if ($this->request->data['User']['password'] == $this->request->data['User']['password_confirm']) {
-	    		$this->User->create();	
+	    		$this->User->create();
 	    	} else {
 	    		$this->Session->setFlash(__('Your passwords do not match, please try again'));
 				return;
 			}
-			
-	    	
 
 			if ($this->User->save($this->request->data)) {
-	    		$this->Session->setFlash(__('Welcome pledgebay'));
-
-	    			$this->redirect(array('action' => 'home'));
+	    		$this->Session->setFlash('Welcome to ProDono', 'default', array( 'class' => 'alert alert-success'));
+	    			$this->Auth->login();
+	    			$this->redirect('/users/view/' . $this->User->id);
 	            } else {
 	            	$this->Session->setFlash(__('Please fix the problems below and try again'));
 	            }
@@ -62,7 +60,6 @@ class UsersController extends AppController {
 
 	public function login() {
 	    if ($this->request->is('post')) {
-	    	
 	        if ($this->Auth->login()) {
 	            echo "worked";
 	        } else {
@@ -167,19 +164,19 @@ class UsersController extends AppController {
 	
 	}
 
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->User->create();
-			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The employment has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The employment could not be saved. Please, try again.'));
-			}
-		}
-		$charities = $this->User->Charity->find('list');
-		$this->set(compact('charities'));
-	}
+	// public function add() {
+	// 	if ($this->request->is('post')) {
+	// 		$this->User->create();
+	// 		if ($this->User->save($this->request->data)) {
+	// 			$this->Session->setFlash(__('The employment has been saved'));
+	// 			$this->redirect('/users/view/' . $this->User->id);
+	// 		} else {
+	// 			$this->Session->setFlash(__('The employment could not be saved. Please, try again.'));
+	// 		}
+	// 	}
+	// 	$charities = $this->User->Charity->find('list');
+	// 	$this->set(compact('charities'));
+	// }
 
 
 
