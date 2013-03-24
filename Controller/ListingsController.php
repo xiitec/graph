@@ -50,17 +50,18 @@ class ListingsController extends AppController {
 			$this->Listing->create();
 			if ($this->Listing->save($this->request->data)) {
                                 
-                                $this->Listing->user_id = $this->Auth->user('id'); //so we dont need the dropdown
+                $this->Listing->user_id = $this->Auth->user('id'); //so we dont need the dropdown
                                 
-				$this->Session->setFlash(__('The listing has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash('The listing has been saved', 'default', array( 'class' => 'alert alert-success'));
+				$this->redirect('/users/view/' . $this->Auth->user('id'));
 			} else {
-				$this->Session->setFlash(__('The listing could not be saved. Please, try again.'));
+				$this->Session->setFlash('The listing could not be saved. Please try again.', 'default', array( 'class' => 'alert alert-danger'));
 			}
 		}
+		$service = 1;
 		$services = $this->Listing->Service->find('list');
 		$users = $this->Listing->User->find('list');
-		$this->set(compact('services', 'users'));
+		$this->set(compact('service', 'services', 'users'));
 	}
 
 /**

@@ -51,6 +51,7 @@ $cakeDescription = __d('cake_dev', 'ProDono.co! Offer Service | Recieve Service 
 					<ul class="nav">
 				      <li class="<?php if(isset($home))echo "active";?>"><?php echo $this->Html->link("Home", '/'); ?></li>
 				      <li class="<?php if(isset($join)) echo "active";?>"><a href="/join"> Sign Up Now</a></li>
+				      <li class="<?php if(isset($service)) echo "active";?>"><a href="/listings/add"> Add Service</a></li>
 				      <li class="<?php if(isset($about))echo "active";?>"><a href="/about"> About</a></li>
 	
                         
