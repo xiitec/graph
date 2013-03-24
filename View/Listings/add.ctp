@@ -18,7 +18,8 @@
 		echo $this->Form->input('service_id');
 		echo $this->Form->input('rate', array('description' => 'what is this job worth?'));
 		echo $this->Form->input('website');
-		echo $this->Form->input('description');
+		echo $this->Form->input('user_id', array('value' => $user, 'type' => 'hidden'));
+		echo $this->Form->input('description', array('type' => 'textarea'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
