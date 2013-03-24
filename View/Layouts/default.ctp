@@ -49,10 +49,10 @@ $cakeDescription = __d('cake_dev', 'ProDono.co! Offer Service | Recieve Service 
 					?>
 		  			<a class="brand" href="/">ProDono</a>
 					<ul class="nav">
-				      <li class="<?php echo $active;?>"><?php echo $this->Html->link("Home", '/'); ?></li>
-				      <li class="<?php echo $active;?>"><a href="/join"> Sign Up Now</a></li>
-				      <li class="<?php echo $active;?>"><a href="/about"> About</a></li>
-				      <li class="<?php echo $active;?>"><a href="/contact"> Contact Us </a></li>
+				      <li class="<?php if($a)echo "active";?>"><?php echo $this->Html->link("Home", '/'); ?></li>
+				      <li class="<?php if($a)echo "active";?>"><a href="/join"> Sign Up Now</a></li>
+				      <li class="<?php if($a)echo "active";?>"><a href="/about"> About</a></li>
+				      <li class="<?php if($a)echo "active";?>"><a href="/contact"> Contact Us </a></li>
                         
                                      <?php
 					if ($this->Session->read('Auth.User')) {
