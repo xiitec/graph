@@ -26,7 +26,6 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
 	    $this->Auth->allow('index', 'join', 'logout', 'resetpass', 'forgotpass');
-            
 	}
 
 
@@ -61,7 +60,8 @@ class UsersController extends AppController {
 	public function login() {
 	    if ($this->request->is('post')) {
 	        if ($this->Auth->login()) {
-	            echo "worked";
+	            $this->Session->setFlash('Welcome back', 'default', array( 'class' => 'alert alert-success'));
+	            $this->redirect('/users/view/' . $this->Auth->user('id'));
 	        } else {
 	            $this->Session->setFlash(__('Username or password is incorrect'));
 	        }
@@ -204,7 +204,19 @@ class UsersController extends AppController {
 			throw new NotFoundException(__('Invalid user'));
 		}
 		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+		$this->paginate = array(
+		    'conditions' => array('Listing.user_id =' => $id,
+		    	'Listing.active =' => 0)
+		);
+		$archived_listings = $this->paginate('Listing');
+		$this->paginate = array(
+		    'conditions' => array('Listing.user_id =' => $id,
+		    	'Listing.active =' => 1)
+		);
+    	$current_listings = $this->paginate('Listing');
 		$this->set('user', $this->User->find('first', $options));
+		$this->set('archived_listings', $archived_listings);
+		$this->set('current_listings', $current_listings);
 	}
 
 
@@ -251,10 +263,11 @@ class UsersController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->User->delete()) {
-			$this->Session->setFlash(__('User deleted'));
-			$this->redirect(array('action' => 'index'));
+			$this->Session->setFlash('Account Deleted', 'default', array('class' => 'alert alert-success'));
+			$this->Auth->logout();
+			$this->redirect("/");
 		}
-		$this->Session->setFlash(__('User was not deleted'));
+			$this->Session->setFlash('Error: Contact Site Admin', 'default', array('class' => 'alert alert-danger'));
 		$this->redirect(array('action' => 'index'));
 	}
 

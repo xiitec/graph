@@ -50,18 +50,19 @@ $cakeDescription = __d('cake_dev', 'ProDono.co! Offer Service | Recieve Service 
 		  			<a class="brand" href="/">ProDono</a>
 					<ul class="nav">
 				      <li class="<?php if(isset($home))echo "active";?>"><?php echo $this->Html->link("Home", '/'); ?></li>
-				      <li class="<?php if(isset($join)) echo "active";?>"><a href="/join"> Sign Up Now</a></li>
-				      <li class="<?php if(isset($service)) echo "active";?>"><a href="/listings/add"> Add Service</a></li>
-				      <li class="<?php if(isset($about))echo "active";?>"><a href="/about"> About</a></li>
-	
-                        
-                                     <?php
-					if ($this->Session->read('Auth.User')) {
-                                            echo '<li>'. $this->Html->link("Log Out", "/users/logout")."</li>";
-					} else {
-					    echo '<li>'. $this->Html->link("Log In", "/users/login")."</li>";
-					} 
-                                    ?>
+				      <li class="<?php if(isset($about))echo "active";?>"><a href="/about">About</a></li>
+				      <li class="<?php if(isset($browse))echo "active";?>"><a href="/listings/index">Browse Services</a></li>
+	                    <?php
+						if ($this->Session->read('Auth.User')) {
+							echo '<li>'. $this->Html->link("Offer/Request a Service", "/listings/add")."</li>";
+							$user_id = $this->Session->read('Auth.User');
+							echo '<li>'. $this->Html->link("Profile", "/users/view/". $user_id['id'] )."</li>";
+	                    	echo '<li>'. $this->Html->link("Log Out", "/users/logout")."</li>";
+						} else {
+						    echo '<li>'. $this->Html->link("Sign Up Now", "/join")."</li>";
+						    echo '<li>'. $this->Html->link("Log In", "/users/login")."</li>";
+						} 
+	                    ?>
 				    </ul>
 			  	</div>
 			</div>

@@ -15,6 +15,10 @@ class ListingsController extends AppController {
  */
 	public $components = array('Auth');
 
+	public function beforeFilter() {
+	    $this->Auth->allow('index', 'view');
+	}
+
 /**
  * index method
  *
@@ -75,7 +79,7 @@ class ListingsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Listing->save($this->request->data)) {
 				$this->Session->setFlash(__('The listing has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect('/users/view/' . $this->Auth->user('id'));
 			} else {
 				$this->Session->setFlash(__('The listing could not be saved. Please, try again.'));
 			}
