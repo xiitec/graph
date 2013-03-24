@@ -9,7 +9,6 @@ App::uses('CakeEmail', 'Network/Email');
  */
 class UsersController extends AppController {
     
-    var $scaffold;
  
 	//public $components = array('Auth');
 	public $components = array(
@@ -40,7 +39,7 @@ class UsersController extends AppController {
 	 public function join() {
 	    if ($this->request->is('post')) {
 	    	if ($this->request->data['User']['password'] == $this->request->data['User']['password_confirm']) {
-	    		$this->User->create();
+	    		$this->User->create();	
 	    	} else {
 	    		$this->Session->setFlash(__('Your passwords do not match, please try again'));
 				return;
@@ -74,8 +73,8 @@ class UsersController extends AppController {
 
 	public function logout() {
 		if($this->Auth->logout()) {
-			echo "logged out";
-		return true;	
+			$this->Session->setFlash('You have been logged out', 'default', array('class' => 'alert alert-success'));
+                        return true;	
 		};
 		
 	}
@@ -83,14 +82,14 @@ class UsersController extends AppController {
 	//this is where you request your key
 	public function resetpass() {
 		if ($this->Auth->login()) {
-			$this->Session->setFlash(__('You have been logged out'));
+			$this->Session->setFlash('You have been logged out', 'default', array('class' => 'alert alert-success'));
                         $this->Auth->logout();
                         return;
 		}
 		if ($this->request->is('post')) {		
 			$this->User->id = $this->User->find('first', array('conditions' => array('email' => $this->request->data['User']['email']))); //find the user based on email
 			if(!$this->User->id) {
-                            $this->Session->setFlash(__('No email like that'));
+                            $this->Session->setFlash('Email not found', 'default', array('class' => 'alert alert-danger'));
                             return;
                         }
                         $key = md5(date('H:i:s').'7ff7dsad34');
@@ -124,7 +123,7 @@ class UsersController extends AppController {
 	public function forgotpass($hash = null) {
 		$hash = mysql_escape_string($hash);
 		if ($hash == null) {
-			$this->Session->setFlash(__('You need a hash'));
+			$this->Session->setFlash('Must have a hash', 'default', array('class' => 'alert alert-danger'));
 			$this->set('nohash', 1);			
 		} else {
 			$user = $this->User->find('first', array('conditions' => array('resetkey' => $hash)));
@@ -135,7 +134,7 @@ class UsersController extends AppController {
 						if($this->data['User']['password'] == $this->data['User']['password_confirm']) {
 							$q = $this->User->saveField('password', $this->data['User']['password']);
 								if($q) {
-									$this->Session->setFlash(__('your password has been reset, please log in'));
+									$this->Session->setFlash('Your password has been reset, please log in', 'default', array('class' => 'alert alert-danger'));
                                                                         $this->redirect(array('action'=>'login'));                                                                        
                                                                 }
                                                 }
@@ -226,7 +225,7 @@ class UsersController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved'));
+				$this->Session->setFlash('Success', 'default', array('class' => 'alert alert-danger'));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
